@@ -1,0 +1,32 @@
+h1, h2, h3, h4, h5 {
+  font-family: Lobster, cursive;
+}
+
+.grey-background {
+  background-color: #A9A9A9;
+}
+
+.navbar {
+  background-color: #FF80FF;
+  border-radius: 0;
+}
+
+.main-content {
+  background-color: #fff;
+}
+
+.row {
+  overflow: hidden;
+}
+
+.sidebar-right {
+  background-color: #FF80FF;
+  margin-bottom: -100%;
+  padding-bottom: 100%;
+}
+
+.footer {
+  background-color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
