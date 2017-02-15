@@ -60,3 +60,20 @@ body > div:last-child {
     margin-top: 20px;
   }
 }
+
+@media (max-width: 640px) {
+
+}
+
+@media (max-width: 361px) {
+  div {
+    width: 92%;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-bottom: 20px;
+  }
+  .sushi-container {
+    margin-top: 0;
+    width: 92%;
+  }
+}
