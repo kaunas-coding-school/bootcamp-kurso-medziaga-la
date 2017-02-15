@@ -9,7 +9,7 @@ h1 {
 div {
   border: 1px solid #000;
   background-color: #ccc;
-  width: 30%;
+  width: 31.333%;
   float: left;
   margin-right: 1%;
   margin-left: 1%;
@@ -44,4 +44,19 @@ main {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+body > div:last-child {
+  display: none !important;
+}
+
+@media (max-width: 769px) {
+  div {
+    width: 48%;
+  }
+
+  .sushi-container {
+    width: 98%;
+    margin-top: 20px;
+  }
 }
