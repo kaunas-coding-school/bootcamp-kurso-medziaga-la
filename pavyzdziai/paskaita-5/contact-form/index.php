@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
+    <?php var_dump($_POST) ?>
     <div class="container-fluid bg-image">
       <div class="row full-height">
         <div class="col-xs-12">
@@ -18,7 +19,7 @@
               <h1 class="mobile-center">A new world of tailored shirts for women</h1>
               <h2  class="mobile-center">Arriving 2016</h2>
               <p class="mobile-center">Sign up for reinvented wardrobe classics, made for movement</p>
-              <form id="js-contact" class="contact-form form-horizontal">
+              <form id="js-contact" class="contact-form form-horizontal"  method="POST">
                 <div class="form-group">
                   <div class="col-sm-6">
                     <input id="js-firstname" class="form-control" type="text" name="firstname" placeholder="First name">
