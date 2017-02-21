@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 'use strict';
 
   // 1. Pasirenkam elementus
@@ -53,7 +53,7 @@
     if (fname === "" || lname  === "" || email  === "") {
       // Stabdom formos siuntima
       // Sukuriam nauja div elementa
-      messageElement("Please, fill in form fields");
+      messageElement("Please, fill in form fields", "danger");
       return;
     }
 
@@ -72,21 +72,23 @@
       return response.json();
     }).then(function(json){
       if (json.error) {
-        messageElement(json.error);
+        messageElement(json.error, "danger");
         console.log(json.error);
       } else {
-        messageElement(json.success);
+        messageElement(json.success, "success");
         console.log(json.success);
+        $(contactForm).hide();
       }
     });
   }
 
-  function messageElement(message) {
+  function messageElement(message, type) {
     var errorMessage = document.createElement("div");
     // Kintamasis patikrinimui ar jau yra message
     var oldError = document.querySelector(".alert");
+
     // Uzpildom nauja elementa turiniu
-    errorMessage.innerHTML = '<p class="alert alert-danger">' + message + '</p>';
+    errorMessage.innerHTML = '<p class="alert alert-' + type + '">' + message + '</p>';
     // Ikeliam i HTML struktura
     if (oldError) {
       messageContainer.replaceChild(errorMessage, oldError.parentNode);
@@ -94,4 +96,4 @@
       messageContainer.appendChild(errorMessage);
     }
   }
-})();
+})(jQuery);
