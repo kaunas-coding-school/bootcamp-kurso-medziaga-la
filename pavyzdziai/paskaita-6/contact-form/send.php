@@ -29,27 +29,15 @@ if (array_key_exists("firstname", $_POST)) {
     $mail->Body = 'Firstname: ' . $_POST["firstname"] . '<br>Lastname: ' . $_POST["lastname"] . '<br>Email: '.$_POST["email"];
 
     if (!$mail->send()) {
-      $message = 'Failed to send'.$mail->ErrorInfo;
+      $message = '{ "error": "Failed to send"}';
     } else {
-      $message = 'Thank you for your registration';
+      $message = '{ "success": "Thank you for your registration" }';
     }
   } else {
-    $message = 'Please, fill in required fields';
+    $message = '{ "error": "Very please, fill in required fields"}';
   }
+} else {
+  $message = '{ "error": "Method not supported"}';
 }
+echo $message;
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Thank You</title>
-  </head>
-  <body>
-    <h1>Thank you</h1>
-    <?php
-      if ($message) {
-        echo '<div><p class="alert alert-danger">' . $message .'</p></div>';
-      }
-    ?>
-  </body>
-</html>
