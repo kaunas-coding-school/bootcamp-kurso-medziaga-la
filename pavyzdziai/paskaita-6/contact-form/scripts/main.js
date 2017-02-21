@@ -48,26 +48,26 @@
     var email = event.target.email.value;
 
     // Pasitikrinam ar bent vienas is siu kintamuju yra tuscias
-    if (fname === "" || lname  === "" || email  === "") {
-      // Stabdom formos siuntima
-      event.preventDefault();
-      // Sukuriam nauja div elementa
-      var errorMessage = document.createElement("div");
-      // Kintamasis patikrinimui ar jau yra message
-      var oldError = document.querySelector(".alert");
-      // Uzpildom nauja elementa turiniu
-      errorMessage.innerHTML = '<p class="alert alert-danger">Please, fill in form fields</p>';
-      // Ikeliam i HTML struktura
-      if (oldError) {
-        contactForm.replaceChild(errorMessage, oldError.parentNode);
-      } else {
-        contactForm.appendChild(errorMessage);
-      }
-
-
-      console.log(errorMessage);
-      console.log(fname, lname, email);
-      return;
-    }
+    // if (fname === "" || lname  === "" || email  === "") {
+    //   // Stabdom formos siuntima
+    //   event.preventDefault();
+    //   // Sukuriam nauja div elementa
+    //   var errorMessage = document.createElement("div");
+    //   // Kintamasis patikrinimui ar jau yra message
+    //   var oldError = document.querySelector(".alert");
+    //   // Uzpildom nauja elementa turiniu
+    //   errorMessage.innerHTML = '<p class="alert alert-danger">Please, fill in form fields</p>';
+    //   // Ikeliam i HTML struktura
+    //   if (oldError) {
+    //     contactForm.replaceChild(errorMessage, oldError.parentNode);
+    //   } else {
+    //     contactForm.appendChild(errorMessage);
+    //   }
+    //
+    //
+    //   console.log(errorMessage);
+    //   console.log(fname, lname, email);
+    //   return;
+    // }
   }
 })();

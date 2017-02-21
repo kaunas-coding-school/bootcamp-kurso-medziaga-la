@@ -1,3 +1,48 @@
+<?php
+$message = '';
+if (array_key_exists("firstname", $_POST)) {
+  // Isitraukiam biblioteka naudojimui
+  if ($_POST["firstname"] !== "" || $_POST["lastname"] !== "" || $_POST["email"] !== "") {
+    require 'vendor/autoload.php';
+    // Susikuriam objekta is phpmailer klases
+    $mail = new PHPMailer;
+
+    $mail->SMTPDebug = 3;
+    $mail->Debugoutput = 'html';
+
+    // // Nustatom siuntimo konfiguracija
+    $mail->isSMTP();
+    $mail->Host = 'smtp.mailgun.org';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'postmaster@sandbox7432763c3017461983b4cd64f0de9b80.mailgun.org';
+    $mail->Password = 'da0a47255fe73f2adf49dc1fee5f85fb';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    // Paruosiam laisko headeri
+    $mail->setFrom('laurynas.ant@gmail.com', 'Laurynas');
+    $mail->addAddress('laurynas.ant@gmail.com', 'Laurynas Admin');
+    $mail->addReplyTo('laurynas.ant@gmail.com', 'Laurynas Klientas');
+
+    // Pasiruosiam laisko turini
+    $mail->isHTML(true);
+
+    $mail->Subject = 'Contact form submission';
+    $mail->Body = 'Hello';
+
+    if (!$mail->send()) {
+      echo $message = 'Failed to send'.$mail->ErrorInfo;
+    } else {
+      echo $message = 'Thank you for your registration';
+    }
+  } else {
+    $message = 'Please, fill in required fields';
+  }
+  echo $message;
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,7 +54,9 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <?php var_dump($_POST) ?>
+    <?php
+    var_dump($_POST);
+    ?>
     <div class="container-fluid bg-image">
       <div class="row full-height">
         <div class="col-xs-12">
@@ -19,7 +66,12 @@
               <h1 class="mobile-center">A new world of tailored shirts for women</h1>
               <h2  class="mobile-center">Arriving 2016</h2>
               <p class="mobile-center">Sign up for reinvented wardrobe classics, made for movement</p>
-              <form id="js-contact" class="contact-form form-horizontal"  method="POST">
+              <?php
+                if ($message) {
+                  echo '<div><p class="alert alert-danger">' . $message .'</p></div>';
+                }
+              ?>
+              <form id="js-contact" class="contact-form form-horizontal" method="POST" novalidate>
                 <div class="form-group">
                   <div class="col-sm-6">
                     <input id="js-firstname" class="form-control" type="text" name="firstname" placeholder="First name">
