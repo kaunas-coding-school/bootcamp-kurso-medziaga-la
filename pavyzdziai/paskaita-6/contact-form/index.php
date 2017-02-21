@@ -7,9 +7,6 @@ if (array_key_exists("firstname", $_POST)) {
     // Susikuriam objekta is phpmailer klases
     $mail = new PHPMailer;
 
-    $mail->SMTPDebug = 3;
-    $mail->Debugoutput = 'html';
-
     // // Nustatom siuntimo konfiguracija
     $mail->isSMTP();
     $mail->Host = 'smtp.mailgun.org';
@@ -19,29 +16,27 @@ if (array_key_exists("firstname", $_POST)) {
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
+    $fullname = $_POST["firstname"] . ' ' . $_POST["lastname"];
     // Paruosiam laisko headeri
     $mail->setFrom('laurynas.ant@gmail.com', 'Laurynas');
     $mail->addAddress('laurynas.ant@gmail.com', 'Laurynas Admin');
-    $mail->addReplyTo('laurynas.ant@gmail.com', 'Laurynas Klientas');
+    $mail->addReplyTo($_POST["email"], $fullname);
 
     // Pasiruosiam laisko turini
     $mail->isHTML(true);
 
     $mail->Subject = 'Contact form submission';
-    $mail->Body = 'Hello';
+    $mail->Body = 'Firstname: ' . $_POST["firstname"] . '<br>Lastname: ' . $_POST["lastname"] . '<br>Email: '.$_POST["email"];
 
     if (!$mail->send()) {
-      echo $message = 'Failed to send'.$mail->ErrorInfo;
+      $message = 'Failed to send'.$mail->ErrorInfo;
     } else {
-      echo $message = 'Thank you for your registration';
+      $message = 'Thank you for your registration';
     }
   } else {
     $message = 'Please, fill in required fields';
   }
-  echo $message;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,9 +49,6 @@ if (array_key_exists("firstname", $_POST)) {
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <?php
-    var_dump($_POST);
-    ?>
     <div class="container-fluid bg-image">
       <div class="row full-height">
         <div class="col-xs-12">
