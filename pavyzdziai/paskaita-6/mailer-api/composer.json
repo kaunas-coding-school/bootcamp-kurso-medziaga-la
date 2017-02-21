@@ -1,0 +1,12 @@
+{
+    "name": "laurynas/mailer-api",
+    "authors": [
+        {
+            "name": "Laurynas",
+            "email": "laurynas.ant@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "^2.0"
+    }
+}
