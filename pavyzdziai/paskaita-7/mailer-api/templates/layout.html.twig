@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>System of Motion</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/styles/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.min.css', 'node') }}">
+    <link rel="stylesheet" href="{{ asset('main.css', 'css') }}">
   </head>
   <body>
     {% block content %}{% endblock %}
 
-    <script src="node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
-    <script src="scripts/main.js" charset="utf-8"></script>
+    <script src="{{ asset('jquery/dist/jquery.min.js', 'node') }}" charset="utf-8"></script>
+    <script src="{{ asset('main.js', 'js') }}" charset="utf-8"></script>
   </body>
 </html>

@@ -6,7 +6,13 @@ use Silex\Provider\TwigServiceProvider;
 
 $app = new Application();
 $app->register(new SwiftmailerServiceProvider());
-$app->register(new AssetServiceProvider());
+$app->register(new AssetServiceProvider(), array(
+    'assets.named_packages' => array(
+      'css' => array('base_path' => '/styles'),
+      'js' => array('base_path' => '/scripts'),
+      'node' => array('base_path' => '/node_modules'),
+    )
+));
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../templates',
 ));
