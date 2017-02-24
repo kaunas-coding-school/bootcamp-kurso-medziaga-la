@@ -1,4 +1,8 @@
-$color: #666;
+// bower:scss
+@import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+$color: #777;
 
 h1 {
   background-color: $color;

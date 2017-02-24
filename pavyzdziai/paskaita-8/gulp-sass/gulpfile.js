@@ -20,18 +20,26 @@ gulp.task('styles', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('wiredep', function() {
+gulp.task('wiredep-html', function() {
   gulp.src('./index.html')
     .pipe(wiredep())
     .pipe(gulp.dest('./'));
 });
 
+gulp.task('wiredep-scss', function() {
+  gulp.src('./styles/main.scss')
+    .pipe(wiredep())
+    .pipe(gulp.dest('./styles'));
+});
+
+
 // Atnaujinti browser, kai pakeiciami SCSS failai
 // Pradedam developint
-gulp.task('watch', ['wiredep', 'browser-sync', 'styles'], function(){
+gulp.task('watch', ['wiredep-html', 'wiredep-scss', 'browser-sync', 'styles'], function(){
   gulp.watch('./styles/**/*.scss', ['styles']);
+  gulp.watch('./index.html').on('change', browserSync.reload);
 });
 
 // Default komanda
 // Perkompiliuoti
-gulp.task('default', ['wiredep', 'styles']);
+gulp.task('default', ['wiredep-html', 'wiredep-scss', 'styles']);
