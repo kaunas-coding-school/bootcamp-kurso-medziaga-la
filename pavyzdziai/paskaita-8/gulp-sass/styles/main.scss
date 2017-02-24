@@ -1,13 +1,11 @@
+$brand-primary: #00ff00;
+$navbar-height: 80px;
+$navbar-default-bg: $brand-primary;
+$color: #777;
+
 // bower:scss
 @import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-$color: #777;
-
-h1 {
-  background-color: $color;
-}
-
-p {
-  color: $color;
-}
+@import "global.scss";
+@import "footer.scss";
