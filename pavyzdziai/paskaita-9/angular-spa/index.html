@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="todoApp">
   <head>
     <meta charset="utf-8">
     <title>Angular</title>
     <script src="node_modules/angular/angular.min.js" charset="utf-8"></script>
+    <script src="todo.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="todo.css">
   </head>
   <body>
+    <h2>Mano sąrašas</h2>
     <div class="">
-      <label for="vardas">Vardas:</label>
-      <input id="vardas" ng-model="vardas" type="text" name="" value="">
+      <span>1 iš 3</span> [ <a href="#">archyvuoti</a> ]
+      <ul class="unstyled">
+        <li><label><input type="checkbox"> Pirmas punktas</label></li>
+        <li><label><input type="checkbox"> Antras punktas</label></li>
+      </ul>
+      <form>
+        <input type="text">
+        <input type="submit" value="Pridėti">
+      </form>
     </div>
-    <h1>Labas {{ vardas }}</h1>
   </body>
 </html>
