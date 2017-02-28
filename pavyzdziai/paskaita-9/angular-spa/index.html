@@ -9,14 +9,13 @@
   </head>
   <body>
     <h2>Mano sąrašas</h2>
-    <div class="">
-      <span>1 iš 3</span> [ <a href="#">archyvuoti</a> ]
+    <div ng-controller="TodoListController as todoList">
+      <span>{{ todoList.remaining() }} iš {{ todoList.todos.length }} </span> [ <a href="#">archyvuoti</a> ]
       <ul class="unstyled">
-        <li><label><input type="checkbox"> Pirmas punktas</label></li>
-        <li><label><input type="checkbox"> Antras punktas</label></li>
+        <li ng-repeat="todo in todoList.todos"><label><input  ng-model="todo.done" type="checkbox"> <span class="done-{{ todo.done }}">{{ todo.text }}</span></label></li>
       </ul>
-      <form>
-        <input type="text">
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText">
         <input type="submit" value="Pridėti">
       </form>
     </div>
