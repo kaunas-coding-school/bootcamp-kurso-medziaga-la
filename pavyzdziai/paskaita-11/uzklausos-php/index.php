@@ -1,16 +1,21 @@
 <?php
 
+// Connect to database
 $host = '127.0.0.1';
 $db = 'pdotest';
 $user = 'root';
 $pass = 'root';
 $charset = 'utf8';
-
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
+// Initiate database object from PDO class
 $pdo = new PDO($dsn, $user, $pass);
 
-$users = $pdo->query('SELECT * FROM users');
+// Set up query
+$query = $pdo->query('SELECT * FROM users');
+
+// Execute query and save results to $users
+// $users = $query->fetch();
 
 ?>
 <!DOCTYPE html>
@@ -21,6 +26,10 @@ $users = $pdo->query('SELECT * FROM users');
   </head>
   <body>
     <h1>Hello world</h1>
-    <?php var_dump($pdo) ?>
+    <?php
+      while ($user = $query->fetch()) {
+        echo $user['id'] . $user['firstname'] . "\n";
+      }
+    ?>
   </body>
 </html>
