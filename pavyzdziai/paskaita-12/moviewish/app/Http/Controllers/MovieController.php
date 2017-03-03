@@ -14,7 +14,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movie::all();
+        return view('movies.index', array('movies' => $movies));
     }
 
     /**
@@ -24,7 +25,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('movies.create');
     }
 
     /**
@@ -46,7 +47,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return view('movies.show', array('movie' => $movie));
     }
 
     /**
@@ -57,7 +58,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        return view('movies.edit');
     }
 
     /**
