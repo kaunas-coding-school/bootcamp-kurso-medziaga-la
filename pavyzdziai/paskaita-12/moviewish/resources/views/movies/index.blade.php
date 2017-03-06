@@ -16,7 +16,8 @@
         <tr>
             <td>{{ $movie->title }}</td>
             <td>{{ $movie->release_date }}</td>
-            <td><a class="btn btn-default" href="/movies/{{ $movie->id }}">View more details</a></td>
+            <td><a class="btn btn-default"
+                href="{{ route('movies.show', [$movie->id]) }}">View details</a></td>
         </tr>
         @endforeach
     </tbody>
