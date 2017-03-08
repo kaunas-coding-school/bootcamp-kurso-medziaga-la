@@ -13,5 +13,4 @@ describe('Calculator', function() {
         assert.equal(2, calculator.sum(2));
       });
     });
-
 });

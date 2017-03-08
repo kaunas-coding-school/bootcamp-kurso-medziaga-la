@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('./loader');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -24,3 +24,4 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+console.log(calculator.sum(2));
