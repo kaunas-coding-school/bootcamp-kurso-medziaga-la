@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+// var calculator = require('./calculator');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,3 +19,5 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+
+console.log(calculator.isEven(2));

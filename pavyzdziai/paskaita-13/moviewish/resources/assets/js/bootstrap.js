@@ -9,6 +9,8 @@ window._ = require('lodash');
 
 window.$ = window.jQuery = require('jquery');
 
+window.calculator = require('./calculator');
+
 require('bootstrap-sass');
 
 /**
