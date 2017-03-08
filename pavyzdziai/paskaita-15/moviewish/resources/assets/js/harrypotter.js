@@ -2,6 +2,10 @@ var HarryPotter = {};
 // HarryPotter knygu kaina
 HarryPotter.price = 8;
 
+// [[1, 1, 1, 1, 1,], [1, 1, 1]]
+//
+// [5, 1];
+
 // Galimybe pakeisti knygos kaina
 HarryPotter.setPrice = function(newPrice) {
     this.price = newPrice;
