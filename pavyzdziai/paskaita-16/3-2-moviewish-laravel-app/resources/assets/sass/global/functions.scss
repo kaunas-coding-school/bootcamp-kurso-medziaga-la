@@ -1,0 +1,11 @@
+@mixin background-contain($path) {
+    background-repeat: no-repeat;
+    background-image: url($path);
+    background-size: 22px 22px;
+    background-position: center;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-indent: -9999px;
+    display: block;
+}

@@ -1,13 +1,11 @@
 // Global
 @import "app/styles/global/defaults.scss";
 @import "app/styles/global/variables.scss";
-
+@import "app/styles/global/functions.scss";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
-
-
 
 // Components
 @import "app/styles/components/navigation.scss";
