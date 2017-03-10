@@ -11,32 +11,31 @@
 |
 */
 
-Route::get('/', 'WishlistController@index')->name('home');
 
-Route::post('/', 'WishlistController@feedback')->name('home');
+// Homepage for visitors
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@feedback')->name('home');
 
+// Authentication routes
+Auth::routes();
 
+// Wishlist homepage for loggged in users
+Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
+
+// Search movies routes
+Route::get('/search', 'SearchMoviesController@index')->name('search');
+Route::post('/search', 'SearchMoviesController@send')->name('search');
+
+// Movie results route
+Route::get('/search/results', 'SearchMoviesController@results')->name('search-results');
+
+// Movies
+Route::resource('movies', 'MovieController');
+
+// Returns views without Controller
 Route::get('/cinemas', function () {
     return view('cinemas');
 });
-
-Route::get('/feedback', function () {
-    return view('feedback');
-});
-
-Route::get('/movie', function () {
-    return view('movie');
-});
-
-Route::get('/search', function () {
-    return view('search');
-});
-
 Route::get('/settings', function () {
     return view('settings');
 });
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');

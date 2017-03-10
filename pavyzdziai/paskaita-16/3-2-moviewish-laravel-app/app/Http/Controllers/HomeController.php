@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
     /**
-     * Create a new controller instance.
+     * Show the page for visitors.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth');
+        return view('home');
     }
 
     /**
@@ -21,8 +22,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function feedback(Request $request)
     {
-        return view('home');
+        return redirect()->route('home')->with(['status' => 'thank you for your feedback']);
     }
 }

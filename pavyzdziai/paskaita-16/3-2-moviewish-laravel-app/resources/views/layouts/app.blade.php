@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="col-xs-3">
-                        <a class="search-icon pull-right" href="search.html">Search</a>
+                        <a class="search-icon pull-right" href="{{ route('search') }}">Search</a>
                     </div>
                 </nav>
 
@@ -43,8 +43,8 @@
 
                 <div class="col-xs-3 sidebar-offcanvas" id="sidebar">
                   <div class="list-group">
-                    <a href="index.html" class="list-group-item active">Home</a>
-                    <a href="login.html" class="list-group-item">Login</a>
+                    <a href="/" class="list-group-item active">Home</a>
+                    <a href="/login" class="list-group-item">Login</a>
                     <a href="#" class="list-group-item">Link</a>
                     <a href="#" class="list-group-item">Link</a>
                     <a href="#" class="list-group-item">Link</a>

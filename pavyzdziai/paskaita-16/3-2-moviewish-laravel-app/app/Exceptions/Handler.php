@@ -30,9 +30,12 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return void
      */
-    public function report(Exception $exception)
+    public function report(Exception $e)
     {
-        parent::report($exception);
+        if ($this->shouldReport($e)) {
+        app('sentry')->captureException($e);
+        }
+        parent::report($e);
     }
 
     /**
@@ -62,4 +65,5 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest(route('login'));
     }
+
 }
